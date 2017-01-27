@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="ionicApp">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+    <!-- double escape the lib so we don't have 2 lib folders, that drastically decreases the size of apk -->
+    <link href="android_asset/../../lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="android_asset/../../lib/ionic/js/ionic.bundle.js"></script>
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="../cordova.js"></script>
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    <!-- double escape to share the same controllers.js file with side menu templates -->
+    <!-- you can also to this with services, etc... -->
+    <script src="android_asset/../../js/controllers.js"></script>
+</head>
+
+<body ng-app="starter" ng-controller="AppController">
+    <ion-pane>
+        <ion-header-bar class="bar-dark ezar">
+        </ion-header-bar>
+        <!-- abs position title above header. Allow header to be semi-transparent
+           without applying to title -->
+        <div id="title" class="title">ezAR Ionic</div>
+        <ion-content scroll="false">
+        </ion-content>
+        <div class="bar bar-dark ezar ezar-footer"></div>
+        <a id="snapshot" class="ezar-button" ng-click="snapshot()"></a>
+        <a id="revcamera" class="ezar-button" ng-click="reverseCamera()"></a>
+    </ion-pane>
+</body>
+
+</html>
