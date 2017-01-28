@@ -1,6 +1,6 @@
 
 # What is this?
-Working example of integrating Ionic 1.x side menus with [ezAR](http:/ezartech.com)
+Working example of integrating Ionic 1.x side menus with http:/ezartech.com
 
 Ezar implemention is based on [ezar-ionic](https://github.com/ezartech/ezar-ionic). Follow the instructions there to see how to install plugins.
 
