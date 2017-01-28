@@ -1,15 +1,28 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {})
+.controller('AppCtrl', function() {})
 
 .controller('HomeCtrl', function($scope) {
 
+    $scope.image = window.localStorage.getItem('image');
+
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    function onDeviceReady() { screen.lockOrientation('portrait'); }
+
 })
 
-.controller("AppController", function($scope, $timeout) {
+.controller('EzarCtrl', function($scope, $timeout, $state) {
 
+    // screen.lockOrientation('landscape');
     $scope.snapshotTimestamp = Date.now();
     $scope.reverseCameraTimestamp = Date.now();
+
+    $scope.goHome = function() {
+        // window.open('file:///android_asset/www/index.html#/app/home', '_self');
+
+        window.open('../#/app/home');
+    }
 
     $scope.snapshot = function() {
         //ignore ghost clicks, wait 1.5 sec between invocations
@@ -30,7 +43,10 @@ angular.module('starter.controllers', [])
 
         setTimeout(function() {
             ezar.snapshot(
-                function() {
+                function(base64EncodedImage) {
+
+                    $scope.imgURI = base64EncodedImage;
+                    window.localStorage.setItem('image', $scope.imgURI);
                     //perform screen capture
                     //show snapshot button
                     if (inclWebView && !inclCameraBtns) {
@@ -40,7 +56,9 @@ angular.module('starter.controllers', [])
                 }, null, {
                     encodingType: ezar.ImageEncoding.PNG,
                     includeWebView: inclWebView,
-                    saveToPhotoAlbum: true
+                    saveToPhotoAlbum: false,
+                    fitWebViewToCameraView: false,
+                    quality: 100
                 });
         }, 200);
     };

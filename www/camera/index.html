@@ -18,7 +18,7 @@
     <script src="android_asset/../../js/controllers.js"></script>
 </head>
 
-<body ng-app="starter" ng-controller="AppController">
+<body ng-app="starter" ng-controller="EzarCtrl">
     <ion-pane>
         <ion-header-bar class="bar-dark ezar">
         </ion-header-bar>
@@ -26,6 +26,7 @@
            without applying to title -->
         <div id="title" class="title">ezAR Ionic</div>
         <ion-content scroll="false">
+            <a class="button button-assertive" ng-click="goHome()">Home</a>
         </ion-content>
         <div class="bar bar-dark ezar ezar-footer"></div>
         <a id="snapshot" class="ezar-button" ng-click="snapshot()"></a>
