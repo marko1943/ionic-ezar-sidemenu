@@ -14,14 +14,18 @@ angular.module('starter.controllers', [])
 
 .controller('EzarCtrl', function($scope, $timeout, $state) {
 
-    // screen.lockOrientation('landscape');
+    
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    function onDeviceReady() { screen.unlockOrientation(); }
+
     $scope.snapshotTimestamp = Date.now();
     $scope.reverseCameraTimestamp = Date.now();
 
     $scope.goHome = function() {
-        // window.open('file:///android_asset/www/index.html#/app/home', '_self');
+        // window.open('file:///android_asset/www/index.html#/app/home', '_self'); //ucomment this for a standalone app routing
 
-        window.open('../#/app/home');
+        window.open('../#/app/home'); // live reload routing - remove when using standalone app
     }
 
     $scope.snapshot = function() {
